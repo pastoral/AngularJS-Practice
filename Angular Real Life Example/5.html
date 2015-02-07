@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HTML Starter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="contact.js"></script>
+  </head>
+<body>
+	<div ng-app = "myApp" class = "container">
+		<div ng-controller = "ContactController">
+			<form role = "form" class="well">
+				<div class = "form-group">
+					<label for = "name"> Name:  </label>
+					<input type = "text" id = "name" class = "form-control" placeholder = "Enter Name " ng-model = "newcontact.name">
+				</div>
+				<div class = "form-group">
+					<label for = "email"> Email:  </label>
+					<input type = "email" id = "email" class = "form-control" placeholder = "Enter Email " ng-model = "newcontact.email">
+				</div>
+				<div class = "form-group">
+					<label for = "phone"> Phone:  </label>
+					<input type = "text" id = "phone" class = "form-control" placeholder = "Enter Phone " ng-model = "newcontact.phone">
+				</div>
+				<br>
+				<input type="hidden" ng-model="newcontact.id">
+				<input type="button" class="btn btn-primary" ng-click="saveContact()" class="btn btn-primary" value = "Submit">
+			</form>
+			
+			<table class = "table table-striped table-bordered table-hover">
+				<thead>
+					<tr class = "info">
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat = "contact in contacts">
+						 <td>{{ contact.name }}</td>
+						 <td>{{ contact.email }}</td>
+						 <td>{{ contact.phone }}</td>
+		
+						 <td>
+							<a href="#" ng-click="edit(contact.id)" role = "button" class = "btn btn-info">edit</a> &nbsp;
+							<a href="#" ng-click="delete(contact.id)" role = "button" class = "btn btn-danger">delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		
+		</div>
+	</div>
+  
+</body>
+</html>
