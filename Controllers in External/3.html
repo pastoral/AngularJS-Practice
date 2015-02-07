@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HTML Starter</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="controller1.js"></script>
+  </head>
+<body ng-app = "myApp" >
+
+	<div ng-controller = "SpicyControl">
+		<button ng-click = "ChillySpice()"> Chilli </button>
+		<button ng-click = "PepperSpice()"> Pepper </button>
+		<p> The food is <b>{{spice}} </b> spicy </p>
+	</div>
+  
+</body>
+</html>
